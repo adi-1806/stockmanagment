@@ -8,12 +8,37 @@
 </head>
 <body>
     <form>
-        <button>
-            <a href={% url 'motorsentrypage' %}>
-            Add motor
-            </a>
-        </button>
-        <br>
+        <div>
+            <h3>Motors stock present</h3>
+            <ol>
+                {% for fields in present_stock %}
+                    {{fields.company}}
+                    {{fields.model_name}}
+                    {{fields.hp}}
+                    {{fields.others}}
+                    {{fields.quantity}}
+                    {{fields.hsncode}}
+                    <br><br>
+                {% endfor %}
+            </ol>
+            <button>
+                <a href={% url 'motorsentrypage' %}>
+                Add motor
+                </a>
+            </button>
+            <br>
+            
+            <h3>Other stock present</h3>
+            <ol>
+                {% for fields in other_stock %}
+                    {{fields.item_name}}
+                    {{fields.specifications}}
+                    {{fields.quantity}}
+                    {{fields.hsncode}}
+                    <br><br>
+                {% endfor %}
+            </ol>
+        </div>
         <button>
             <a href={% url 'otherentrypage' %}>
                 Add other products

@@ -4,7 +4,12 @@ from .models import motor_products, other_products
 # Create your views here.
 
 def stock_page(request):
-    return render(request, "stock/stock.html")
+    present_stock=motor_products.objects.all()
+    other_stock=other_products.objects.all()
+    return render(request, "stock/stock.html",{
+        "present_stock":present_stock,
+        "other_stock":other_stock
+    })
 
 def motors_entrypage(request):
     if request.method=='POST':
