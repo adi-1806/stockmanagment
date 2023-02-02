@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry page</title>
+</head>
+<body>
+    <form method="POST" action="/motors_entrypage/">
+        {%csrf_token %}
+        <label>Company :</label>
+        <input type="text" name="company"> <br><br>
+        <label>Model Name :</label>
+        <input type="text" name="model"> <br><br>
+        <label>Hp :</label>
+        <input type="text" name="hp" > <br><br>
+        <label>HSN code :</label>
+        <input type="text" name="hsncode"> <br><br>
+        <label>other specifications :</label>
+        <input type="text" name="specs"> <br><br>
+        <label>quantity :</label>
+        <input type="text" name="quantity"> <br><br>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
