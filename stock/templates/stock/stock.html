@@ -1,49 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static "stock/stock.css" %}">
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <script src="{% static "stock/stock.js" %}" defer></script>
 </head>
+
 <body>
+
+    <div class="options">
+        <div class="op current" id="op1"><span class="unline">Motors Stock</span></div>
+        <div class="op" id="op2"><span class="unline">Other Stock</span></div>
+    </div>
+
     <form>
-        <div>
-            <h3>Motors stock present</h3>
-            <ol>
-                {% for fields in present_stock %}
-                    {{fields.company}}
-                    {{fields.model_name}}
-                    {{fields.hp}}
-                    {{fields.others}}
-                    {{fields.quantity}}
-                    {{fields.hsncode}}
-                    <br><br>
-                {% endfor %}
-            </ol>
+        <div id="motors">
+            <h3>Current Motors stock</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S No. </th>
+                        <th>Company</th>
+                        <th>Model</th>
+                        <th>HP</th>
+                        <th>HSN Code</th>
+                        <th>Quantity</th>
+                        <th>Others</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fields in present_stock %}
+                    <tr>
+                        
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{fields.company}}</td>
+                        <td>{{fields.model_name}}</td>
+                        <td>{{fields.hp}}</td>
+                        <td>{{fields.hsncode}}</td>
+                        <td>{{fields.quantity}}</td>
+                        <td>{{fields.others}}</td>
+                        <td><button class="operations">edit</button><button class="operations">delete</button></td>
+                    </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
             <button>
                 <a href={% url 'motorsentrypage' %}>
-                Add motor
+                    Add motor
                 </a>
             </button>
-            <br>
-            
-            <h3>Other stock present</h3>
-            <ol>
-                {% for fields in other_stock %}
-                    {{fields.item_name}}
-                    {{fields.specifications}}
-                    {{fields.quantity}}
-                    {{fields.hsncode}}
-                    <br><br>
-                {% endfor %}
-            </ol>
         </div>
-        <button>
-            <a href={% url 'otherentrypage' %}>
-                Add other products
+
+        <div id="others">
+            <h3>Current Other stock</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Item</th>
+                        <th>Specifications</th>
+                        <th>Quantity</th>
+                        <th>HSN Code</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fields in other_stock %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{fields.item_name}}</td>
+                        <td>{{fields.specifications}}</td>
+                        <td>{{fields.quantity}}</td>
+                        <td>{{fields.hsncode}}</td>
+                        <td><button class="operations">edit</button><button class="operations">delete</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button>
+                <a href={% url 'otherentrypage' %}>
+                    Add other products
                 </a>
-        </button>
+            </button>
+        </div>
     </form>
 </body>
+
 </html>

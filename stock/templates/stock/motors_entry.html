@@ -1,27 +1,35 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <link rel="stylesheet" href="{% static "stock/motor.css" %}">
     <title>Entry page</title>
 </head>
+
 <body>
     <form method="POST" action="/motors_entrypage/">
         {%csrf_token %}
-        <label>Company :</label>
-        <input type="text" name="company"> <br><br>
-        <label>Model Name :</label>
-        <input type="text" name="model"> <br><br>
-        <label>Hp :</label>
-        <input type="text" name="hp" > <br><br>
-        <label>HSN code :</label>
-        <input type="text" name="hsncode"> <br><br>
-        <label>other specifications :</label>
-        <input type="text" name="specs"> <br><br>
-        <label>quantity :</label>
-        <input type="text" name="quantity"> <br><br>
-        <button type="submit">submit</button>
+        <main>
+            <label for="company">Company<span class="req">*</span> </label>
+            <input type="text" id="company" name="company" required> 
+            <label for="model">Model Name<span class="req">*</span> </label>
+            <input type="text" id="model" name="model" required> 
+            <label for="hp">Hp<span class="req">*</span> </label>
+            <input type="text" id="hp" name="hp" required> 
+            <label for="hsncode">HSN code<span class="req">*</span> </label>
+            <input type="text" id="hsncode" name="hsncode" required>
+            <label for="quantity">Quantity<span class="req">*</span> </label>
+            <input type="text" id="quantity" name="quantity" required> 
+            <label for="specs">Other Specifications<span class="req">*</span> </label>
+            <input type="text" id="specs" name="specs" required> 
+            <button type="submit">submit</button>
+        </main>
     </form>
 </body>
+
 </html>
