@@ -1,3 +1,18 @@
+{% load static %}
+
 <header>
-    <nav> <h1>YOYO</h1> </nav>
+    <nav>
+        <div class="profilepic">
+            <img src="{% static "stock/images/profilepic.jpeg" %}" alt="Krishna">
+            <p>Krishna</p>
+            <p>999999999</p>
+        </div>
+        <div class="logo">
+            Krishna Agency
+        </div>
+        <div class="actions">
+            <li class="act1"><a href="">History</a></li>
+            <li class="act2"><a href={% url 'stockpage' %}>Home</a></li>
+        </div>
+    </nav>
 </header>

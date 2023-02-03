@@ -53,7 +53,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <button>
+        <button class="abut">
             <a href={% url 'motorsentrypage' %}>
                 Add motor
             </a>
@@ -81,17 +81,18 @@
                     <td>{{fields.specifications}}</td>
                     <td>{{fields.quantity}}</td>
                     <td>{{fields.hsncode}}</td>
-                    <td><button class="operations">edit</button>
+                    <td><button class="operations"><a href="">edit</a></button>
                         <button class="operations"><a href={% url 'delete-other' fields.id %}>delete</a></button> 
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <button>
+        <button class="abut">
             <a href={% url 'otherentrypage' %}>
                 Add other products
             </a>
         </button>
     </div>
+
 </form>
 {% endblock page_body %}
