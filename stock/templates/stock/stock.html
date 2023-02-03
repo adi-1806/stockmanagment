@@ -45,7 +45,7 @@
                     <td>{{fields.hsncode}}</td>
                     <td>{{fields.quantity}}</td>
                     <td>{{fields.others}}</td>
-                    <td><button class="operations">edit</button>
+                    <td><button class="operations"><a href="">edit</a></button>
                         <button class="operations"><a href={% url 'delete-motor' fields.id %}>delete</a></button>
                     </td>
                 </tr>
@@ -81,7 +81,7 @@
                     <td>{{fields.specifications}}</td>
                     <td>{{fields.quantity}}</td>
                     <td>{{fields.hsncode}}</td>
-                    <td><button class="operations">edit</button>
+                    <td><button class="operations"><a href="">edit</a></button>
                         <button class="operations"><a href={% url 'delete-other' fields.id %}>delete</a></button> 
                 </tr>
                 {% endfor %}

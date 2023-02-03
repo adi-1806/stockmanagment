@@ -95,10 +95,15 @@ button{
     padding: 0;
 }
 
-
-button>a {
+.abut>a { 
     display: block;
     padding: .5rem 1.5rem;
+    font-weight: bolder;
+    color: #ade6b9;
+    text-decoration: none;
+}
+
+button>a{
     font-weight: bolder;
     color: #ade6b9;
     text-decoration: none;
@@ -120,5 +125,8 @@ button.operations{
     width: fit-content;
     font-size: .7rem;
     margin: .1rem;
+    padding: 0;
+}
+.operations>a{
     padding: .2rem 1rem;
 }

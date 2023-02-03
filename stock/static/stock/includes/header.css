@@ -1,7 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,700;1,700&display=swap');
 header{
-    background-color: black;
+    background-color: #003d2b;
     position: sticky;
     top: 0;
     width: 100%;
 }
+nav{
+    display: flex;
+    justify-content: space-between;
+ }
+.profilepic{
+    padding: 1rem;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profilepic p{
+    color: #ade6b9;
+    margin: .2rem;
+    font-size: .7rem;
+}
+.profilepic img{
+    border: 1px solid #ade6b9;
+    border-radius: 50%;
+    width: 3rem;
+    object-fit: contain;
+}
 
+.logo{
+    font-family: 'Josefin Slab', serif;
+    color: #ade6b9;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.actions li{
+    color: #ade6b9;
+    list-style: none;
+    padding: 0 0.75rem 0 0.75rem;
+}
+li a{
+    text-decoration: none;
+    color: #ade6b9;
+}
