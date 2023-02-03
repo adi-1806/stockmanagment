@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <h1>Are you sure you want to delete?</h1><br>
+        <input id="yes" name="Yes" type="submit" />
+        <a href={% url 'stockpage' %}><div>Cancel</div></a>
+    </form>
+</body>
+</html>

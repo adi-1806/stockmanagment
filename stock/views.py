@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, HttpResponseRedirect 
 from .models import motor_products, other_products
 from django.contrib import messages
 
@@ -59,3 +59,20 @@ def other_entrypage(request):
         other_details.save()
     return render(request, "stock/other_entry.html")
 
+def delete_motor(request, pk):
+    queryset= motor_products.objects.get(id=pk)
+    if request.method == 'POST':
+        form=request.POST['Yes']
+        if form=='Submit':
+            queryset.delete()
+            return HttpResponseRedirect("/stock_page")
+    return render(request, 'stock/delete.html')
+
+def delete_other(request, pk):
+    queryset= other_products.objects.get(id=pk)
+    if request.method == 'POST':
+        form=request.POST['Yes']
+        if form=='Submit':
+            queryset.delete()
+            return HttpResponseRedirect("/stock_page")
+    return render(request, 'stock/delete.html')
