@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static "stock/login.css" %}" />
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <form class="login-form" method="POST" action="/stock_page/">
+            {% csrf_token%}
+          <input type="text" placeholder="Username" name="username"/>
+          <input type="password" placeholder="Password" name="password"/>
+          <button>login</button>
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>

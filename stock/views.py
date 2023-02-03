@@ -1,7 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import motor_products, other_products
+from django.contrib import messages
 
 # Create your views here.
+def login(request):
+    if request.method=='POST':
+        entered_username=request.POST['username']
+        entered_password=request.POST['password']
+        if entered_username=='krishna' and entered_password=='kittu':
+            return redirect(request,"/stock/stock.html")
+        else:
+            messages.info(request, 'invalid details')
+    return render(request, "stock/login.html")
 
 def stock_page(request):
     present_stock=motor_products.objects.all()
@@ -48,3 +58,4 @@ def other_entrypage(request):
         # print(entered_hp)
         other_details.save()
     return render(request, "stock/other_entry.html")
+
