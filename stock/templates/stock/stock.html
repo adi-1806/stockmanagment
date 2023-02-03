@@ -51,7 +51,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <button>
+        <button class="abut">
             <a href={% url 'motorsentrypage' %}>
                 Add motor
             </a>
@@ -84,11 +84,13 @@
                 {% endfor %}
             </tbody>
         </table>
-        <button>
+        <button class="abut">
             <a href={% url 'otherentrypage' %}>
                 Add other products
             </a>
         </button>
     </div>
+
+    <h1>{% lorem 9 p random %}</h1>
 </form>
 {% endblock page_body %}
