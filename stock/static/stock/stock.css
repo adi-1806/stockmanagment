@@ -92,6 +92,7 @@ button {
 }
 
 button>a {
+    display: block;
     font-weight: bolder;
     color: #ade6b9;
     text-decoration: none;

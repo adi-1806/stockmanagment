@@ -1,8 +1,8 @@
-body{
+main{
     display: flex;
     justify-content: center;
 }
-main{
+.formdiv{
     margin-top: 3rem;
     display: grid;
     grid-template-columns: auto auto;
@@ -28,7 +28,6 @@ button{
 }
 button:hover{
     box-shadow: 0px 0px 12px #003d2b;
-    
 }
 
 label{

@@ -1,28 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'stock_base.html' %}
+
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "style.css" %}">
+
+{% block page_title %}
+    Others Entry Page
+{% endblock page_title %}
+
+{% block page_css %}
     <link rel="stylesheet" href="{% static "stock/motor.css" %}">
-    <title>Entry page</title>
-</head>
-<body>
+{% endblock page_css %}
+
+
+{% block page_body %}
+<main>
     <form method="POST" action="/other_entrypage/">
         {%csrf_token %}
-        <main>
+        <div class="formdiv">
             <label for="product">Product Name<span class="req">*</span> </label>
-            <input type="text" id="product" name="product" required> 
+            <input type="text" id="product" name="product" required>
             <label for="hsncode">HSN code<span class="req">*</span> </label>
-            <input type="text" id="hsncode" name="hsncode" required> 
+            <input type="text" id="hsncode" name="hsncode" required>
             <label for="quantity">Quantity<span class="req">*</span> </label>
-            <input type="text" id="quantity" name="quantity" required> 
+            <input type="text" id="quantity" name="quantity" required>
             <label for="specs">Other Specifications<span class="req">*</span> </label>
-            <input type="text" id="specs" name="specs" required> 
+            <input type="text" id="specs" name="specs" required>
             <button type="submit ">submit</button>
-        </main>
+        </div>
     </form>
-</body>
-</html>
+</main>
+{% endblock page_body %}
