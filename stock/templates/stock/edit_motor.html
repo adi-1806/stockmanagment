@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit</title>
 </head>
 <body>
     <form method="POST">
         {% csrf_token %}
-        <label for="company">Company : <span class="req">*</span> </label>
+        <label for="company">Company </label>
         <input type="text" id="company" name="company" placeholder="{{details.company}}">
-        <label for="model">Model Name<span class="req">*</span> </label>
+        <label for="model">Model Name</label>
         <input type="text" id="model" name="model" placeholder="{{details.model_name}}">
-        <label for="hp">Hp<span class="req">*</span> </label>
+        <label for="hp">Hp</label>
         <input type="text" id="hp" name="hp" placeholder="{{details.hp}}">
-        <label for="hsncode">HSN code<span class="req">*</span> </label>
+        <label for="hsncode">HSN code</label>
         <input type="text" id="hsncode" name="hsncode" placeholder="{{details.others}}">
-        <label for="quantity">Quantity<span class="req">*</span> </label>
+        <label for="quantity">Quantity</label>
         <input type="text" id="quantity" name="quantity" placeholder="{{details.quantity}}">
-        <label for="specs">Other Specifications<span class="req">*</span> </label>
+        <label for="specs">Other Specifications</label>
         <input type="text" id="specs" name="specs" placeholder="{{details.hsncode}}">
-        <button type="submit">submit</button>
+        <input type="submit" id="yes" name="Yes" />
     </form>
 </body>
 </html>

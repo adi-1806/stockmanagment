@@ -23,40 +23,42 @@ def stock_page(request):
 
 def motors_entrypage(request):
     if request.method=='POST':
-        entered_company=request.POST['company']
-        entered_model=request.POST['model']
-        entered_hp=request.POST['hp']
-        entered_specs=request.POST['specs']
-        entered_quantity=request.POST['quantity']
-        entered_hsncode=request.POST['hsncode']
-        motor_details=motor_products(
-            company=entered_company,
-            model_name= entered_model,
-            hp= entered_hp,
-            others=entered_specs,
-            quantity= entered_quantity,
-            hsncode= entered_hsncode
-        )
-        # print(entered_company)
-        # print(entered_hp)
-        motor_details.save()
+        form=request.POST['Yes']
+        if form=='Submit':
+            entered_company=request.POST['company']
+            entered_model=request.POST['model']
+            entered_hp=request.POST['hp']
+            entered_specs=request.POST['specs']
+            entered_quantity=request.POST['quantity']
+            entered_hsncode=request.POST['hsncode']
+            motor_details=motor_products(
+                company=entered_company,
+                model_name= entered_model,
+                hp= entered_hp,
+                others=entered_specs,
+                quantity= entered_quantity,
+                hsncode= entered_hsncode
+            )
+            motor_details.save()
+            return HttpResponseRedirect("/stock_page")
     return render(request, "stock/motors_entry.html")
 
 def other_entrypage(request):
     if request.method=='POST':
-        entered_product=request.POST['product']
-        entered_hsncode=request.POST['hsncode']
-        entered_specs=request.POST['specs']
-        entered_quantity=request.POST['quantity']
-        other_details=other_products(
-            item_name=entered_product,
-            specifications=entered_specs,
-            quantity= entered_quantity,
-            hsncode= entered_hsncode
-        )
-        # print(entered_company)
-        # print(entered_hp)
-        other_details.save()
+        form=request.POST['Yes']
+        if form=='Submit':
+            entered_product=request.POST['product']
+            entered_hsncode=request.POST['hsncode']
+            entered_specs=request.POST['specs']
+            entered_quantity=request.POST['quantity']
+            other_details=other_products(
+                item_name=entered_product,
+                specifications=entered_specs,
+                quantity= entered_quantity,
+                hsncode= entered_hsncode
+            )
+            other_details.save()
+            return HttpResponseRedirect("/stock_page")
     return render(request, "stock/other_entry.html")
 
 def delete_motor(request, pk):
@@ -87,54 +89,83 @@ def edit_motors(request,pk):
         entered_quantity=request.POST['quantity']
         entered_hsncode=request.POST['hsncode']
 
-        if entered_company is not None:
-            motor_details=motor_products(
-            company=entered_company)
-            motor_details.save()
-        else:
-            motor_details=details.company
-            motor_details.save()
-        
-        if entered_quantity is not None:
-            motor_details=motor_products(
-            company=entered_quantity)
-            motor_details.save()
-        else:
-            motor_details=details.quantity
-            motor_details.save()
-        
-        if entered_model is not None:
-            motor_details=motor_products(
-            company=entered_model)
-            motor_details.save()
-        else:
-            motor_details=details.model_name
-            motor_details.save()
-        
-        if entered_hp is not None:
-            motor_details=motor_products(
-            company=entered_hp)
-            motor_details.save()
-        else:
-            motor_details=details.hp
-            motor_details.save()
-        
-        if entered_hsncode is not None:
-            motor_details=motor_products(
-            company=entered_hsncode)
-            motor_details.save()
-        else:
-            motor_details=details.hsncode
-            motor_details.save()
+        form=request.POST['Yes']
+        if form=='Submit':
+            if entered_company!="":
+                motor_products.objects.filter(company=details.company).update(company=entered_company)
+            else:
+                motor_products.objects.filter(company=details.company).update(company=details.company)
 
-        if entered_specs is not None:
-            motor_details=motor_products(
-            company=entered_specs)
-            motor_details.save()
-        else:
-            motor_details=details.others
-            motor_details.save()
+            if entered_model!="":
+                motor_products.objects.filter(company=details.company).update(model_name=entered_model)
+            else:
+                motor_products.objects.filter(company=details.company).update(model_name=details.model_name)
+
+            if entered_hp!="":
+                motor_products.objects.filter(company=details.company).update(hp=entered_hp)
+            else:
+                motor_products.objects.filter(company=details.company).update(hp=details.hp)
+
+            if entered_specs!="":
+                motor_products.objects.filter(company=details.company).update(others=entered_specs)
+            else:
+                motor_products.objects.filter(company=details.company).update(others=details.others)
+
+            if entered_quantity!="":
+                motor_products.objects.filter(company=details.company).update(quantity=entered_quantity)
+            else:
+                motor_products.objects.filter(company=details.company).update(quantity=details.quantity)
+
+            if entered_hsncode!="":
+                motor_products.objects.filter(company=details.company).update(hsncode=entered_hsncode)
+            else:
+                motor_products.objects.filter(company=details.company).update(hsncode=details.hsncode)
+            
+            return HttpResponseRedirect("/stock_page")
 
     return render(request, 'stock/edit_motor.html',{
         "details":details
     })
+
+def edit_others(request,pk):
+    details=other_products.objects.get(id=pk)
+    if request.method== 'POST':
+        entered_item=request.POST['product']
+        entered_specs=request.POST['specs']
+        entered_quantity=request.POST['quantity']
+        entered_hsncode=request.POST['hsncode']
+
+        form=request.POST['Yes']
+        if form=='Submit':
+
+            if entered_item!="":
+                other_products.objects.filter(item_name=details.item_name).update(item_name=entered_item)
+            else:
+                other_products.objects.filter(item_name=details.item_name).update(item_name=details.item_name)
+
+            if entered_specs!="":
+                other_products.objects.filter(item_name=details.item_name).update(specifications=entered_specs)
+            else:
+                other_products.objects.filter(item_name=details.item_name).update(specifications=details.specifications)
+
+            if entered_quantity!="":
+                other_products.objects.filter(item_name=details.item_name).update(quantity=entered_quantity)
+            else:
+                other_products.objects.filter(item_name=details.item_name).update(quantity=details.quantity)
+
+            if entered_hsncode!="":
+                other_products.objects.filter(item_name=details.item_name).update(hsncode=entered_hsncode)
+            else:
+                other_products.objects.filter(item_name=details.item_name).update(hsncode=details.hsncode)
+            
+            return HttpResponseRedirect("/stock_page")
+
+    return render(request, 'stock/edit_others.html',{
+        "details":details
+    })
+
+def shopinfo(request):
+    return render(request, 'stock/shopinfo.html')
+
+def history(request):
+    return render(request, 'stock/history.html')

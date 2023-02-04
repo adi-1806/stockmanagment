@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <form method="POST">
+        {%csrf_token %}
+        <div class="formdiv">
+            <label for="product">Product Name</label>
+            <input type="text" id="product" name="product" placeholder="{{details.item_name}}">
+            <label for="hsncode">HSN code</label>
+            <input type="text" id="hsncode" name="hsncode" placeholder="{{details.hsncode}}">
+            <label for="quantity">Quantity</label>
+            <input type="text" id="quantity" name="quantity" placeholder="{{details.quantity}}">
+            <label for="specs">Other Specifications</label>
+            <input type="text" id="specs" name="specs" placeholder="{{details.specifications}}">
+            <input type="submit" id="yes" name="Yes" />
+        </div>
+    </form>
+</body>
+</html>
