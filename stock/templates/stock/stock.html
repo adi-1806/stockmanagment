@@ -13,86 +13,87 @@
 
 {% block page_body %}
 
-<div class="options">
-    <div class="op current" id="op1"><span class="unline">Motors Stock</span></div>
-    <div class="op" id="op2"><span class="unline">Other Stock</span></div>
-</div>
-
-<form>
-    <div id="motors">
-        <h3>Current Motors stock</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>S No. </th>
-                    <th>Company</th>
-                    <th>Model</th>
-                    <th>HP</th>
-                    <th>HSN Code</th>
-                    <th>Quantity</th>
-                    <th>Others</th>
-                    <th>Operations</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for fields in present_stock %}
-                <tr>
-                    
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{fields.company}}</td>
-                    <td>{{fields.model_name}}</td>
-                    <td>{{fields.hp}}</td>
-                    <td>{{fields.hsncode}}</td>
-                    <td>{{fields.quantity}}</td>
-                    <td>{{fields.others}}</td>
-                    <td><button class="operations"><a href={% url 'editmotor' fields.id %}>edit</a></button>
-                        <button class="operations"><a href={% url 'delete-motor' fields.id %}>delete</a></button>
-                    </td>
-                </tr>
-                
-                {% endfor %}
-            </tbody>
-        </table>
-        <button class="abut">
-            <a href={% url 'motorsentrypage' %}>
-                Add motor
-            </a>
-        </button>
+<main>
+    <div class="options">
+        <div class="op current" id="op1"><span class="unline">Motors Stock</span></div>
+        <div class="op" id="op2"><span class="unline">Other Stock</span></div>
     </div>
-
-    <div id="others">
-        <h3>Current Other stock</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>S No.</th>
-                    <th>Item</th>
-                    <th>Specifications</th>
-                    <th>Quantity</th>
-                    <th>HSN Code</th>
-                    <th>Operations</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for fields in other_stock %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{fields.item_name}}</td>
-                    <td>{{fields.specifications}}</td>
-                    <td>{{fields.quantity}}</td>
-                    <td>{{fields.hsncode}}</td>
-                    <td><button class="operations"><a href={% url 'editother' fields.id %}>edit</a></button>
-                        <button class="operations"><a href={% url 'delete-other' fields.id %}>delete</a></button> 
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <button class="abut">
-            <a href={% url 'otherentrypage' %}>
-                Add other products
-            </a>
-        </button>
-    </div>
-
-</form>
+    
+    <form>
+        <div id="motors">
+            <h3>Current Motors stock</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S No. </th>
+                        <th>Company</th>
+                        <th>Model</th>
+                        <th>HP</th>
+                        <th>HSN Code</th>
+                        <th>Quantity</th>
+                        <th>Others</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fields in present_stock %}
+                    <tr>
+    
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{fields.company}}</td>
+                        <td>{{fields.model_name}}</td>
+                        <td>{{fields.hp}}</td>
+                        <td>{{fields.hsncode}}</td>
+                        <td>{{fields.quantity}}</td>
+                        <td>{{fields.others}}</td>
+                        <td><button class="operations"><a href={% url 'editmotor' fields.id %}>edit</a></button>
+                            <button class="operations"><a href={% url 'delete-motor' fields.id %}>delete</a></button>
+                        </td>
+                    </tr>
+    
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button class="abut">
+                <a href={% url 'motorsentrypage' %}>
+                    Add motor
+                </a>
+            </button>
+        </div>
+    
+        <div id="others">
+            <h3>Current Other stock</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Item</th>
+                        <th>Specifications</th>
+                        <th>Quantity</th>
+                        <th>HSN Code</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fields in other_stock %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{fields.item_name}}</td>
+                        <td>{{fields.specifications}}</td>
+                        <td>{{fields.quantity}}</td>
+                        <td>{{fields.hsncode}}</td>
+                        <td><button class="operations"><a href={% url 'editother' fields.id %}>edit</a></button>
+                            <button class="operations"><a href={% url 'delete-other' fields.id %}>delete</a></button>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button class="abut">
+                <a href={% url 'otherentrypage' %}>
+                    Add other products
+                </a>
+            </button>
+        </div>
+    </form>
+</main>
 {% endblock page_body %}

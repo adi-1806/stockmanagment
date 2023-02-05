@@ -7,4 +7,17 @@ body{
     margin: 0;
     background-color: #ade6b9;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main{
+    flex-grow: 1;
+}
+header{
+    z-index: 10;
+}
+
+header, footer{
+    flex-shrink: 0;
 }
