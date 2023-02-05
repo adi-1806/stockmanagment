@@ -191,9 +191,5 @@ def edit_others(request,pk):
     })
 
 @login_required(login_url='loginpage')
-def shopinfo(request):
-    return render(request, 'stock/shopinfo.html')
-
-@login_required(login_url='loginpage')
 def history(request):
     return render(request, 'stock/history.html')
