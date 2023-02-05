@@ -26,8 +26,8 @@ def logoutUser(request):
 
 @login_required(login_url='loginpage')
 def stock_page(request):
-    present_stock=motor_products.objects.all()
-    other_stock=other_products.objects.all()
+    present_stock=motor_products.objects.all().order_by("company")
+    other_stock=other_products.objects.all().order_by("item_name")
     return render(request, "stock/stock.html",{
         "present_stock":present_stock,
         "other_stock":other_stock
