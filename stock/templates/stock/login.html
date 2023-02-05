@@ -10,10 +10,15 @@
   <body>
     <div class="login-page">
       <div class="form">
+        
         <form class="login-form" method="POST" action="">
             {% csrf_token%}
+          <h3>Owner login</h1>
           <input type="text" placeholder="Username" name="username"/>
           <input type="password" placeholder="Password" name="password"/>
+          {% for msg in messages %}
+              {{msg}}
+          {% endfor %}
           <button>login</button>
         </form>
       </div>

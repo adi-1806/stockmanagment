@@ -13,7 +13,7 @@
         {% csrf_token %}
         <h1>Are you sure you want to delete?</h1><br>
         <input id="yes" name="Yes" type="submit" value="yes"/>
-        <a href={% url 'stockpage' %}><div id="no">No</div></a>
+        <a href={% url 'stockpage' %} id="no"><div >No</div></a>
     </form>
 </body>
 </html>
