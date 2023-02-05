@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
-</head>
-<body>
+{% extends 'stock_base.html' %}
+
+{% load static %}
+
+{% block page_title %}
+    Edit
+{% endblock page_title %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "stock/motor.css" %}">
+{% endblock page_css %}
+
+{% block page_body %}
+<main>
     <form method="POST">
         {%csrf_token %}
         <div class="formdiv">
@@ -18,8 +23,8 @@
             <input type="text" id="quantity" name="quantity" placeholder="{{details.quantity}}">
             <label for="specs">Other Specifications</label>
             <input type="text" id="specs" name="specs" placeholder="{{details.specifications}}">
-            <input type="submit" id="yes" name="Yes" />
+            <input type="submit" id="yes" class="yes" name="Yes" />
         </div>
     </form>
-</body>
-</html>
+</main>
+{% endblock page_body %}

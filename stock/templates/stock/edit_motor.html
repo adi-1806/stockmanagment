@@ -1,27 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
-</head>
-<body>
+{% extends 'stock_base.html' %}
+
+{% load static %}
+
+{% block page_title %}
+    Edit
+{% endblock page_title %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "stock/motor.css" %}">
+{% endblock page_css %}
+
+{% block page_body %}
+
+
+<main>
     <form method="POST">
         {% csrf_token %}
-        <label for="company">Company </label>
-        <input type="text" id="company" name="company" placeholder="{{details.company}}">
-        <label for="model">Model Name</label>
-        <input type="text" id="model" name="model" placeholder="{{details.model_name}}">
-        <label for="hp">Hp</label>
-        <input type="text" id="hp" name="hp" placeholder="{{details.hp}}">
-        <label for="hsncode">HSN code</label>
-        <input type="text" id="hsncode" name="hsncode" placeholder="{{details.others}}">
-        <label for="quantity">Quantity</label>
-        <input type="text" id="quantity" name="quantity" placeholder="{{details.quantity}}">
-        <label for="specs">Other Specifications</label>
-        <input type="text" id="specs" name="specs" placeholder="{{details.hsncode}}">
-        <input type="submit" id="yes" name="Yes" />
+        <div class="formdiv">
+            <label for="company">Company </label>
+            <input type="text" id="company" name="company" placeholder="{{details.company}}">
+            <label for="model">Model Name</label>
+            <input type="text" id="model" name="model" placeholder="{{details.model_name}}">
+            <label for="hp">Hp</label>
+            <input type="text" id="hp" name="hp" placeholder="{{details.hp}}">
+            <label for="hsncode">HSN code</label>
+            <input type="text" id="hsncode" name="hsncode" placeholder="{{details.others}}">
+            <label for="quantity">Quantity</label>
+            <input type="text" id="quantity" name="quantity" placeholder="{{details.quantity}}">
+            <label for="specs">Other Specifications</label>
+            <input type="text" id="specs" name="specs" placeholder="{{details.hsncode}}">
+            <input type="submit" id="yes" class="yes" name="Yes" />
+        </div>
     </form>
-</body>
-</html>
+</main>
+{% endblock page_body %}

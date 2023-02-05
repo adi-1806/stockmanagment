@@ -46,7 +46,7 @@ nav{
     list-style: none;
     padding: 0 0.75rem 0 0.75rem;
 }
-li a{
+a{
     text-decoration: none;
     color: #ade6b9;
 }

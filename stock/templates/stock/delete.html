@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete</title>
+    <link rel="stylesheet" href="{% static "stock/delete.css" %}">
 </head>
 <body>
     <form method="post" action="">
         {% csrf_token %}
         <h1>Are you sure you want to delete?</h1><br>
-        <input id="yes" name="Yes" type="submit" />
-        <a href={% url 'stockpage' %}><div>Cancel</div></a>
+        <input id="yes" name="Yes" type="submit" value="yes"/>
+        <a href={% url 'stockpage' %}><div id="no">No</div></a>
     </form>
 </body>
 </html>

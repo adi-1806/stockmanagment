@@ -5,12 +5,14 @@
         <a href={% url 'shopinfo' %}>
             <div class="profilepic">
                 <img src="{% static "stock/images/profilepic.jpeg" %}" alt="Krishna">
-                <p>Devasani Krishna Reddy</p>
-                <p>+91 9000019991</p>
+                <p class="ap">Devasani Krishna Reddy</p>
+                <p class="ap">+91 9000019991</p>
             </div>
         </a>
         <div class="logo">
-            Krishna Agency
+                <a href="{% url 'stockpage' %}">
+                Krishna Agency
+            </a>
         </div>
         <div class="actions">
             <li class="act1"><a href={% url 'history' %}>History</a></li>
