@@ -40,6 +40,8 @@ def motors_entrypage(request):
                 hsncode= entered_hsncode
             )
             motor_details.save()
+
+            messages.success(request, ' Item added successfully')
             return HttpResponseRedirect("/stock_page")
     return render(request, "stock/motors_entry.html")
 

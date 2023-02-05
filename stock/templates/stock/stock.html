@@ -21,6 +21,9 @@
 <form>
     <div id="motors">
         <h3>Current Motors stock</h3>
+        {% for message in messges %}
+        <p>{{message}}</p>
+        {% endfor %}
         <table>
             <thead>
                 <tr>
