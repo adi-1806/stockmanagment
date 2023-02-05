@@ -22,6 +22,7 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
+    messages.info(request, 'Logout successful')
     return redirect('loginpage')
 
 @login_required(login_url='loginpage')
