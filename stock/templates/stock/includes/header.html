@@ -2,14 +2,12 @@
 
 <header>
     <nav>
-        <a href={% url 'shopinfo' %}>
-            <div class="profilepic">
-                <img src="{% static "stock/images/profilepic.jpeg" %}" alt="Krishna">
-                <p class="ap">Dealer</p>
-                <p class="ap">Devasani Krishna Reddy</p>
-                <p class="ap">+91 9000019991</p>
-            </div>
-        </a>
+        <div class="profilepic">
+            <img src="{% static "stock/images/profilepic.jpeg" %}" alt="Krishna">
+            <p class="ap">Dealer</p>
+            <p class="ap">Devasani Krishna Reddy</p>
+            <p class="ap">+91 9000019991</p>
+        </div>
         <div class="logo">
                 <a href="{% url 'stockpage' %}">
                 Krishna Agency
@@ -18,7 +16,6 @@
         <div class="actions">
             <li class="act1"><a href={% url 'history' %}>History</a></li>
             <li class="act2"><a href={% url 'stockpage' %}>Home</a></li>
-            <li class="act1"><a href={% url 'shopinfo' %}>Shop Details</a></li>
             <li class="act2"><a href={% url 'logout' %}>Logout</a></li>
 
         </div>
