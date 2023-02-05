@@ -8,14 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{% static "stock/login.css" %}" />
   </head>
   <body>
-    {% for message in messges %}
-        <p>
-          {{message}}
-        </p>
-    {% endfor %}
     <div class="login-page">
       <div class="form">
-        <form class="login-form" method="POST" action="/stock_page/">
+        <form class="login-form" method="POST" action="">
             {% csrf_token%}
           <input type="text" placeholder="Username" name="username"/>
           <input type="password" placeholder="Password" name="password"/>

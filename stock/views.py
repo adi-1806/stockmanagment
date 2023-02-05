@@ -1,18 +1,30 @@
 from django.shortcuts import render,redirect, HttpResponseRedirect 
 from .models import motor_products, other_products
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def login(request):
+
+def loginUser(request):
     if request.method=='POST':
-        entered_username=request.POST['username']
-        entered_password=request.POST['password']
-        if entered_username=='krishna' and entered_password=='kittu':
-            return redirect(request,"/stock/stock.html")
+        username=request.POST['username']
+        password=request.POST['password']
+
+        user= authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('stockpage')
         else:
-            messages.info(request, 'invalid details')
+            messages.info(request, 'Username Or Password is incorrect')
     return render(request, "stock/login.html")
 
+def logoutUser(request):
+    logout(request)
+    return redirect('loginpage')
+
+@login_required(login_url='loginpage')
 def stock_page(request):
     present_stock=motor_products.objects.all()
     other_stock=other_products.objects.all()
@@ -21,6 +33,7 @@ def stock_page(request):
         "other_stock":other_stock
     })
 
+@login_required(login_url='loginpage')
 def motors_entrypage(request):
     if request.method=='POST':
         form=request.POST['Yes']
@@ -41,10 +54,11 @@ def motors_entrypage(request):
             )
             motor_details.save()
 
-            messages.success(request, ' Item added successfully')
+            messages.success(request, ' Motor added successfully')
             return HttpResponseRedirect("/stock_page")
     return render(request, "stock/motors_entry.html")
 
+@login_required(login_url='loginpage')
 def other_entrypage(request):
     if request.method=='POST':
         form=request.POST['Yes']
@@ -60,27 +74,33 @@ def other_entrypage(request):
                 hsncode= entered_hsncode
             )
             other_details.save()
+            messages.success(request, ' Item added successfully')
             return HttpResponseRedirect("/stock_page")
     return render(request, "stock/other_entry.html")
 
+@login_required(login_url='loginpage')
 def delete_motor(request, pk):
     queryset= motor_products.objects.get(id=pk)
     if request.method == 'POST':
         form=request.POST['Yes']
-        if form=='Submit':
+        if form=='yes':
             queryset.delete()
+            messages.success(request, ' Motor deleted successfully')
             return HttpResponseRedirect("/stock_page")
     return render(request, 'stock/delete.html')
 
+@login_required(login_url='loginpage')
 def delete_other(request, pk):
     queryset= other_products.objects.get(id=pk)
     if request.method == 'POST':
         form=request.POST['Yes']
-        if form=='Submit':
+        if form=='yes':
             queryset.delete()
+            messages.success(request, ' Item deleted successfully')
             return HttpResponseRedirect("/stock_page")
     return render(request, 'stock/delete.html')
 
+@login_required(login_url='loginpage')
 def edit_motors(request,pk):
     details=motor_products.objects.get(id=pk)
     if request.method== 'POST':
@@ -123,12 +143,14 @@ def edit_motors(request,pk):
             else:
                 motor_products.objects.filter(company=details.company).update(hsncode=details.hsncode)
             
+            messages.success(request, ' Details updated successfully')
             return HttpResponseRedirect("/stock_page")
 
     return render(request, 'stock/edit_motor.html',{
         "details":details
     })
 
+@login_required(login_url='loginpage')
 def edit_others(request,pk):
     details=other_products.objects.get(id=pk)
     if request.method== 'POST':
@@ -160,14 +182,17 @@ def edit_others(request,pk):
             else:
                 other_products.objects.filter(item_name=details.item_name).update(hsncode=details.hsncode)
             
+            messages.success(request, ' Details updated successfully')
             return HttpResponseRedirect("/stock_page")
 
     return render(request, 'stock/edit_others.html',{
         "details":details
     })
 
+@login_required(login_url='loginpage')
 def shopinfo(request):
     return render(request, 'stock/shopinfo.html')
 
+@login_required(login_url='loginpage')
 def history(request):
     return render(request, 'stock/history.html')

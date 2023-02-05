@@ -22,6 +22,12 @@
     <form>
         <div id="motors">
             <h3>Current Motors stock</h3>
+            <div><center>
+                {% for msg in messages %}
+                    {{msg}}
+                {% endfor %}
+                </center>
+            </div><br>
             <table>
                 <thead>
                     <tr>
