@@ -3,7 +3,7 @@ from .models import motor_products, other_products
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+from customer.models import selled_motor
 # Create your views here.
 
 def loginUser(request):
@@ -208,4 +208,8 @@ def edit_others(request,pk):
 
 @login_required(login_url='loginpage')
 def history(request):
-    return render(request, 'stock/history.html')
+    #print(details.company)
+    details=selled_motor.objects.all()
+    return render(request, 'stock/history.html',{
+        "details" : details
+    })

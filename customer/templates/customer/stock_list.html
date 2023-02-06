@@ -1,0 +1,106 @@
+{% extends 'stock_base.html' %}
+
+{% load static %}
+
+{% block page_title %}
+    Home Page
+{% endblock page_title %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "stock/stock.css" %}">
+    <!-- <script src="{% static "stock/stock.js" %}" defer></script> -->
+{% endblock page_css %}
+
+{% block page_body %}
+
+<main>
+    <div class="options">
+        <div class="op current" id="op1"><span class="unline">Motors Stock</span></div>
+        <div class="op" id="op2"><span class="unline">Other Stock</span></div>
+    </div>
+    
+    <form>
+        <div id="motors">
+            <h3>Current Motors stock</h3>
+            <div><center>
+                {% for msg in messages %}
+                    {{msg}}
+                {% endfor %}
+                </center>
+            </div><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S No. </th>
+                        <th>Company</th>
+                        <th>Model</th>
+                        <th>HP</th>
+                        <th>HSN Code</th>
+                        <th>Others</th>
+                        <th>Price</th>
+                        <th>Operations</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fields in present_stock %}
+                    <tr>
+    
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{fields.company | title}}</td>
+                        <td>{{fields.model_name | title}}</td>
+                        <td>{{fields.hp}}</td>
+                        <td>{{fields.hsncode}}</td>
+                        <td>{{fields.others | title }}</td>
+                        <td>{{fields.price}}</td>
+                        <td>
+                            <button class="operations"><a href={% url 'billingpage' fields.id %}>Buy</a></button>
+                        </td>
+                        
+                    </tr>
+    
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button class="abut">
+                <!-- <a href={% url 'motorsentrypage' %}>
+                    Add motor
+                </a> -->
+            </button>
+        </div>
+    
+        <div id="others">
+            <h3>Current Other stock</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Item</th>
+                        <th>Specifications</th>
+                        <th>HSN Code</th>
+                        <th>Price</th>
+                
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fields in other_stock %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{fields.item_name | title}}</td>
+                        <td>{{fields.specifications | title}}</td>
+                        <td>{{fields.hsncode}}</td>
+                        <td>{{fields.price}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button class="abut">
+                <!-- <a href={% url 'otherentrypage' %}>
+                    Add other products
+                </a> -->
+            </button>
+        </div>
+    </form>
+</main>
+{% endblock page_body %}

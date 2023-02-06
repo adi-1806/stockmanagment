@@ -11,6 +11,36 @@
 {% endblock page_css %}
 
 {% block page_body %}
-    <h1 id="uc">Page is Under Construction.</h1>
-    <img id="imguc" src="{% static "stock/media/underconstruction.png" %}" alt="underconstruction">
+<table>
+    <thead>
+        <tr>
+            <th>S No.</th>
+            <th>Company</th>
+            <th>Model</th>
+            <th>HP</th>
+            <th>HSN Code</th>
+            <th>Price</th>
+            <th>Others</th>
+            <th>Customer name</th>
+            <th>Cust. ph.no</th>
+            <th>Cust. address</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for fields in details %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{fields.company}}
+        <td>{{fields.model_name}}</td>
+        <td>{{fields.hp}}</td>
+        <td>{{fields.hsncode}}</td>
+        <td>{{fields.price}}</td>
+        <td>{{fields.others}}</td>
+        <td>{{fields.customer_name}}</td>
+        <td>{{fields.customer_phno}}</td>
+        <td>{{fields.customer_address}}</td>
+    </tr>
+    </tbody>
+    {% endfor%}
+</table>
 {% endblock page_body %}
