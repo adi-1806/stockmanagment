@@ -14,8 +14,8 @@
         <form class="login-form" method="POST" action="">
             {% csrf_token%}
           <h3 class="title">Owner login</h1>
-          <div class="input"><input class="in" type="text" placeholder="Username" name="username"/><span class="focus-border"></span></div>
-          <div class="input"><input class="in" type="password" placeholder="Password" name="password"/><span class="focus-border"></span></div>
+          <input type="text" placeholder="Username" name="username"/>
+          <input type="password" placeholder="Password" name="password"/>
           {% for msg in messages %}
               {{msg}}
           {% endfor %}
