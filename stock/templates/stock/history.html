@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hii
-</body>
-</html>
+{% extends 'stock_base.html' %}
+
+{% load static %}
+
+{% block page_title %}
+    History
+{% endblock page_title %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "stock/history.css" %}">
+{% endblock page_css %}
+
+{% block page_body %}
+    <h1 id="uc">Page is Under Construction.</h1>
+    <img id="imguc" src="{% static "stock/media/underconstruction.png" %}" alt="underconstruction">
+{% endblock page_body %}
