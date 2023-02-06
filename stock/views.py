@@ -45,13 +45,15 @@ def motors_entrypage(request):
             entered_specs=request.POST['specs']
             entered_quantity=request.POST['quantity']
             entered_hsncode=request.POST['hsncode']
+            entered_price=request.POST['price']
             motor_details=motor_products(
                 company=entered_company,
                 model_name= entered_model,
                 hp= entered_hp,
                 others=entered_specs,
                 quantity= entered_quantity,
-                hsncode= entered_hsncode
+                hsncode= entered_hsncode,
+                price=entered_price
             )
             motor_details.save()
 
@@ -68,11 +70,13 @@ def other_entrypage(request):
             entered_hsncode=request.POST['hsncode']
             entered_specs=request.POST['specs']
             entered_quantity=request.POST['quantity']
+            entered_price=request.POST['price']
             other_details=other_products(
                 item_name=entered_product,
                 specifications=entered_specs,
                 quantity= entered_quantity,
-                hsncode= entered_hsncode
+                hsncode= entered_hsncode,
+                price=entered_price
             )
             other_details.save()
             messages.success(request, ' Item added successfully')
@@ -111,6 +115,7 @@ def edit_motors(request,pk):
         entered_specs=request.POST['specs']
         entered_quantity=request.POST['quantity']
         entered_hsncode=request.POST['hsncode']
+        entered_price=request.POST['price']
 
         form=request.POST['Yes']
         if form=='Submit':
@@ -144,6 +149,11 @@ def edit_motors(request,pk):
             else:
                 motor_products.objects.filter(company=details.company).update(hsncode=details.hsncode)
             
+            if entered_price!="":
+                motor_products.objects.filter(company=details.company).update(price=entered_price)
+            else:
+                motor_products.objects.filter(company=details.company).update(price=details.price)
+            
             messages.success(request, ' Details updated successfully')
             return HttpResponseRedirect("/stock_page")
 
@@ -159,6 +169,7 @@ def edit_others(request,pk):
         entered_specs=request.POST['specs']
         entered_quantity=request.POST['quantity']
         entered_hsncode=request.POST['hsncode']
+        entered_price=request.POST['price']
 
         form=request.POST['Yes']
         if form=='Submit':
@@ -182,6 +193,11 @@ def edit_others(request,pk):
                 other_products.objects.filter(item_name=details.item_name).update(hsncode=entered_hsncode)
             else:
                 other_products.objects.filter(item_name=details.item_name).update(hsncode=details.hsncode)
+
+            if entered_price!="":
+                other_products.objects.filter(item_name=details.item_name).update(price=entered_price)
+            else:
+                other_products.objects.filter(item_name=details.item_name).update(price=details.price)
             
             messages.success(request, ' Details updated successfully')
             return HttpResponseRedirect("/stock_page")

@@ -38,6 +38,7 @@
                         <th>HSN Code</th>
                         <th>Quantity</th>
                         <th>Others</th>
+                        <th>Price</th>
                         <th>Operations</th>
                     </tr>
                 </thead>
@@ -52,6 +53,7 @@
                         <td>{{fields.hsncode}}</td>
                         <td>{{fields.quantity}}</td>
                         <td>{{fields.others | title }}</td>
+                        <td>{{fields.price}}</td>
                         <td><button class="operations"><a href={% url 'editmotor' fields.id %}>edit</a></button>
                             <button class="operations"><a href={% url 'delete-motor' fields.id %}>delete</a></button>
                         </td>
@@ -77,6 +79,7 @@
                         <th>Specifications</th>
                         <th>Quantity</th>
                         <th>HSN Code</th>
+                        <th>Price</th>
                         <th>Operations</th>
                     </tr>
                 </thead>
@@ -88,6 +91,7 @@
                         <td>{{fields.specifications | title}}</td>
                         <td>{{fields.quantity}}</td>
                         <td>{{fields.hsncode}}</td>
+                        <td>{{fields.price}}</td>
                         <td><button class="operations"><a href={% url 'editother' fields.id %}>edit</a></button>
                             <button class="operations"><a href={% url 'delete-other' fields.id %}>delete</a></button>
                     </tr>

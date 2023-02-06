@@ -9,6 +9,7 @@ class motor_products(models.Model):
     others=models.CharField(max_length=100)
     quantity=models.IntegerField()
     hsncode=models.CharField(max_length=50)
+    price=models.IntegerField(null=True)
     #date=models.DateField(auto_now=False, auto_now_add=False)
 
     def __str__(self) :
@@ -19,6 +20,7 @@ class other_products(models.Model):
     quantity=models.IntegerField()
     specifications=models.CharField(max_length=50)
     hsncode=models.CharField(max_length=50)
+    price=models.IntegerField(null=True)
     #date=models.DateField(auto_now=False, auto_now_add=False)
 
     def __str__(self) :
