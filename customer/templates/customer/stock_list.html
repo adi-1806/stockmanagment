@@ -8,17 +8,12 @@
 
 {% block page_css %}
     <link rel="stylesheet" href="{% static "customer/stock_list.css" %}">
-    <!-- <script src="{% static "stock/stock.js" %}" defer></script> -->
 {% endblock page_css %}
 
 {% block page_body %}
 
 <main>
-    <div class="options">
-        <div class="op current" id="op1"><span class="unline">Motors Stock</span></div>
-        <div class="op" id="op2"><span class="unline">Other Stock</span></div>
-    </div>
-    
+     
     <form>
         <div id="motors">
             <h3>Current Motors stock</h3>
@@ -89,12 +84,7 @@
                     </tr>
                     {% endfor %}
                 </tbody>
-            </table>
-            <button class="abut">
-                <!-- <a href={% url 'otherentrypage' %}>
-                    Add other products
-                </a> -->
-            </button>
+            </table> 
         </div>
     </form>
 </main>
