@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from stock.models import motor_products, other_products
 from .models import selled_motor
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+import datetime
 
 # Create your views here.
 
@@ -15,6 +15,12 @@ def customer_home(request):
 def stock_list(request):
     present_stock=motor_products.objects.all().order_by("company")
     other_stock=other_products.objects.all().order_by("item_name")
+
+    print("-------------------")
+    
+    print(datetime.datetime.now())
+    print("-------------------")
+
     return render(request, "customer/stock_list.html",{
         "present_stock":present_stock,
         "other_stock":other_stock
@@ -47,7 +53,8 @@ def billing(request,pk):
                 others = details.others,
                 customer_name= entered_name,
                 customer_phno= entered_phno,
-                customer_address = entered_address
+                customer_address = entered_address,
+                dateandtime = datetime.datetime.now()
             )
             selled_details.save()
             details.save()

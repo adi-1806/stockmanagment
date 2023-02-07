@@ -12,7 +12,7 @@ class selled_motor(models.Model):
     customer_name=models.CharField(max_length=100)
     customer_phno=models.IntegerField()
     customer_address=models.TextField()
-    dateandtime=models.DateTimeField(auto_now=False, auto_now_add=True, null=True, editable=False)
+    dateandtime = models.DateTimeField(auto_now=False, auto_now_add=True, null=True, editable=False)
 
     def __str__(self) :
         return f"{self.company},{self.model_name},{self.hp},{self.customer_name},{self.customer_phno},{self.customer_address}"
