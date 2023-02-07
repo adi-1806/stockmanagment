@@ -4,44 +4,7 @@
 }
 
 body {
-    margin: 0;
     color: var(--dark-color);
-}
-
-#other{
-    display: block;
-}
-
-.options {
-    display: flex;
-    width: 100%;
-    cursor: pointer;
-    position: relative;
-    top: 0;
-    user-select: none;
-}
-
-#op2 {
-    border-left: 1px solid var(--light-bg-color);
-
-}
-
-.op {
-    flex-grow: 1;
-    text-align: center;
-    padding: 1rem;
-    font-weight: bold;
-    font-size: 1.5rem;
-    background-color:  var(--dark-color);;
-    color:  var(--light-bg-color);;
-    transition: .4s;
-}
-.unline{
-    transition: .4s;
-}
-
-.op:hover > .unline{
-    box-shadow: 0px 3px 0px  var(--light-bg-color);;
 }
 
 h3 {
@@ -51,7 +14,7 @@ h3 {
 }
 
 table {
-    margin: auto;
+    margin: 2rem auto;
     border: 0.3rem solid  var(--dark-color);;
     box-shadow: 0px 72px 500px rgba(0, 0, 0, 0.12);
     border-collapse: collapse;
@@ -90,34 +53,15 @@ button{
     transition: .4s;
 }
 
-.abut{
-    padding: 0;
-}
-
-.abut>a { 
-    display: block;
-    padding: .5rem 1.5rem;
-    font-weight: bolder;
-    color:  var(--light-bg-color);;
-    text-decoration: none;
-}
-
 button>a{
     font-weight: bolder;
-    color:  var(--light-bg-color);;
+    color:  var(--light-bg-color);
     text-decoration: none;
 }
 
 button:hover{
-    box-shadow: 0px 0px 20px  var(--dark-color);;
-    
+    box-shadow: 0px 0px 20px  var(--dark-color); 
 }
-
-.current {
-    color:  var(--dark-color);;
-    background-color:  var(--light-bg-color);;
-}
-
 button.operations{
     display: inline;
     color:  var(--light-bg-color);;
