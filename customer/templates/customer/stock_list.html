@@ -69,7 +69,7 @@
                         <th>Specifications</th>
                         <th>HSN Code</th>
                         <th>Price</th>
-                
+                        <th>Operations</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -80,7 +80,9 @@
                         <td>{{fields.specifications | title}}</td>
                         <td>{{fields.hsncode}}</td>
                         <td>{{fields.price}}</td>
-                        
+                        <td>
+                            <button class="operations"><a href={% url 'billingpage' fields.id %}>Buy</a></button>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
