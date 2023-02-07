@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,700;1,700&display=swap');
 header{
-    background-color: #003d2b;
+    background-color: var(--dark-color);
     position: sticky;
     top: 0;
     width: 100%;
@@ -17,12 +17,12 @@ nav{
     align-items: center;
 }
 .profilepic p{
-    color: #ade6b9;
+    color: var(--light-bg-color);
     margin: .2rem;
     font-size: .7rem;
 }
 .profilepic img{
-    border: 1px solid #ade6b9;
+    border: 1px solid  var(--light-bg-color);;
     border-radius: 50%;
     width: 3rem;
     object-fit: contain;
@@ -30,7 +30,7 @@ nav{
 
 .logo{
     font-family: 'Josefin Slab', serif;
-    color: #ade6b9;
+    color:  var(--light-bg-color);;
     font-size: 3rem;
     display: flex;
     align-items: center;
@@ -42,11 +42,11 @@ nav{
     align-items: center;
 }
 .actions li{
-    color: #ade6b9;
+    color:  var(--light-bg-color);;
     list-style: none;
     padding: 0 0.75rem 0 0.75rem;
 }
 a{
     text-decoration: none;
-    color: #ade6b9;
+    color:  var(--light-bg-color);;
 }
