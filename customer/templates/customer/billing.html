@@ -8,43 +8,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static " customer/billing_motor.css" %}">
+    <link rel="stylesheet" href="{% static "customer/billing_motor.css" %}">
 </head>
 
 <body>
     <form method="POST">
         {%csrf_token%}
 
-        <p>Company : </p>
-        <p>{{details.company}}</p>
-        <p>Model Name : </p>
-        <p>{{details.model_name}}</p>
-        <p>Hp : </p>
-        <p>{{details.hp}}</p>
-        <p>HSN code : </p>
-        <p>{{details.hsncode}}</p>
-        <p>Specifications : </p>
-        <p>{{details.others}}</p>
-        <p>Price : </p>
-        <p>{{details.price}}</p>
+        <div class="card">
+            <h3 class="title">Product Details</h3>
+            <div class="formdiv">
+                <span>Company : </span>
+                <span>{{details.company}}</span>
+                <span>Model Name : </span>
+                <span>{{details.model_name}}</span>
+                <span>Hp : </span>
+                <span>{{details.hp}}</span>
+                <span>HSN code : </span>
+                <span>{{details.hsncode}}</span>
+                <span>Specifications : </span>
+                <span>{{details.others}}</span>
+                <span>Price : </span>
+                <span>{{details.price}}</span>
+            </div>
+        </div>
 
-        <h3>Customer Details</h3>
-        <div class="formdiv">
-            <label>Customer name</label>
-            <input type="text" name="Customer_name" />
-            <label>Customer ph.no</label>
-            <input type="text" name="Customer_phno" />
-            <h3>Residence Details</h3>
-            <label>H.no</label>
-            <input type="text" name="H.no" />
-            <label>Street</label>
-            <input type="text" name="street" />
-            <label>Village/City</label>
-            <input type="text" name="village" />
-            <label>District</label>
-            <input type="text" name="District" />
-            <label>Pincode</label>
-            <input type="text" name="pincode" />
+        <div class="card">
+            <h3 class="title">Customer Details</h3>
+            <div class="formdiv">
+                <label>Customer name</label>
+                <input type="text" name="Customer_name" />
+                <label>Customer ph.no</label>
+                <input type="text" name="Customer_phno" />
+            </div>
+        </div>
+        <div class="card">
+            <h3 class="title">Residence Details</h3>
+            <div class="formdiv">
+                <label>H.no</label>
+                <input type="text" name="H.no" />
+                <label>Street</label>
+                <input type="text" name="street" />
+                <label>Village/City</label>
+                <input type="text" name="village" />
+                <label>District</label>
+                <input type="text" name="District" />
+                <label>Pincode</label>
+                <input type="text" name="pincode" />
+            </div>
         </div>
 
 
