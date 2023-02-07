@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from stock.models import motor_products, other_products
-from .models import selled_motor
+from .models import selled_motor, selled_other
 from django.contrib.auth.decorators import login_required
 import datetime
 
@@ -64,5 +64,43 @@ def billing(request,pk):
         
 
     return render(request, "customer/billing.html",{
+        "details":details
+    })
+
+def billing_others(request,pk):
+    details=other_products.objects.get(id=pk)
+    if request.method=="POST":
+        form=request.POST['Yes']
+
+        if form=='Submit':
+            details.quantity=details.quantity-1
+
+            entered_name = request.POST['Customer_name']
+            entered_phno = request.POST['Customer_phno']
+            entered_hno = request.POST['H.no']
+            entered_street = request.POST['street']
+            entered_village = request.POST['village']
+            entered_district = request.POST['District']
+            entered_pincode = request.POST['pincode']
+            entered_address = entered_hno +", "+ entered_street +", "+ entered_village +", "+ entered_district +", "+ entered_pincode
+ 
+            selled_details=selled_other(
+                item_name= details.item_name,
+                hsncode=details.hsncode,
+                price = details.price,
+                specifications = details.specifications,
+                customer_name= entered_name,
+                customer_phno= entered_phno,
+                customer_address = entered_address,
+                date = datetime.datetime.now()
+            )
+            selled_details.save()
+            details.save()
+        
+
+            return redirect('stocklist')
+        
+
+    return render(request, "customer/billing_other.html",{
         "details":details
     })

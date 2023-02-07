@@ -1,0 +1,64 @@
+{% extends 'stock_base.html' %}
+
+{% load static %}
+
+{% load static %}
+
+{% block page_title %}
+    Billing
+{% endblock page_title %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "customer/billing_motor.css" %}">
+{% endblock page_css %}
+
+{% block page_body %}
+<form method="POST">
+    {%csrf_token%}
+    <h1 class="maintitle">Billing Page</h1>
+    <main>
+        <div class="card" id="pro">
+            <h3 class="title">Product Details</h3>
+            <div class="formdiv">
+                <span class="bold">Item name: </span>
+                <span>{{details.item_name}}</span>
+                <span class="bold">HSN code : </span>
+                <span>{{details.hsncode}}</span>
+                <span class="bold">Specifications : </span>
+                <span>{{details.specifications}}</span>
+                <span class="bold">Price : </span>
+                <span>{{details.price}}</span>
+            </div>
+        </div>
+
+        <div class="custdetails">
+            <div class="card">
+                <h3 class="title">Customer Details</h3>
+                <div class="formdiv">
+                    <label for="Customer_name">Customer name<span class="req">*</span> </label>
+                    <input type="text" name="Customer_name" id="Customer_name" required/>
+                    <label for="Customer_phno">Customer ph.no<span class="req">*</span> </label>
+                    <input type="text" name="Customer_phno" id="Customer_phno" required/>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="title">Residence Details</h3>
+                <div class="formdiv">
+                    <label for="hno">H.no</label>
+                    <input id="hno" type="text" name="H.no" />
+                    <label for="street">Street</label>
+                    <input type="text" id="street" name="street" />
+                    <label for="village">Village/City<span class="req">*</span> </label>
+                    <input type="text" id="village" name="village" required/>
+                    <label for="dist">District<span class="req">*</span> </label>
+                    <input type="text" id="dist" name="District" required/>
+                    <label for="pincode">Pincode<span class="req">*</span> </label>
+                    <input type="text" id="pincode" name="pincode" required/>
+                </div>
+            </div>
+            <input type="submit" id="yes" class="yes" name="Yes" />
+        </div>
+    </main>
+</form>
+
+{% endblock page_body %}
