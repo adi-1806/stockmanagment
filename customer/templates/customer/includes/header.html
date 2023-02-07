@@ -1,0 +1,23 @@
+{% load static %}
+
+<header>
+    <nav>
+        <div class="profilepic">
+            <img src="{% static "stock/media/profilepic.jpeg" %}" alt="Krishna">
+            <p class="ap">Dealer</p>
+            <p class="ap">Devasani Krishna Reddy</p>
+            <a href="tel:+91 9000019991" class="ap">+91 9000019991</a>
+        </div>
+        <div class="logo">
+                <a href="{% url 'stocklist' %}">
+                Krishna Agency
+            </a>
+        </div>
+        <div class="actions">
+            <li class="act1"><a href={% url 'stocklist' %}>Billing</a></li>
+            <li class="act2"><a href={% url 'customer_home' %}>Home</a></li>
+            <li class="act2"><a href={% url 'logout' %}>Logout</a></li>
+
+        </div>
+    </nav>
+</header>

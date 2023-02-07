@@ -1,4 +1,18 @@
-<h2>hii</h2>
+{% extends 'customer_base.html' %}
 
-<a href={% url 'stocklist' %}><button>Billing</button></a>
+{% load static %}
 
+{% load static %}
+
+{% block page_title %}
+    Billing
+{% endblock page_title %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static "customer/customer_home.css" %}">
+{% endblock page_css %}
+
+{% block page_body %}
+
+
+{% endblock page_body %}
