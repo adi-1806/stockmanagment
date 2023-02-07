@@ -1,12 +1,12 @@
 footer{
-    background-color: #003d2b;
+    background-color: var(--dark-color);
     padding: 1rem;
 }
 .content{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #ade6b9;
+    color:  var(--light-bg-color);;
 }
 .bold{
     font-weight: 700;

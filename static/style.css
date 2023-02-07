@@ -3,9 +3,15 @@
     box-sizing: border-box;
 }
 
+:root{
+    --dark-color: #003d2b;
+    --light-bg-color: #ade6b9;
+}
+
+
 body{
     margin: 0;
-    background-color: #ade6b9;
+    background-color: var(--light-bg-color);
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;

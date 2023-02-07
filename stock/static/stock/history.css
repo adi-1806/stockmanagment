@@ -35,3 +35,7 @@ th {
 tr:last-child>td {
     border-bottom: none;
 }
+
+#address{
+    max-width: 15rem;
+}
