@@ -51,6 +51,7 @@ def billing(request,pk):
             )
             selled_details.save()
             details.save()
+        
 
             return redirect('stocklist')
         
