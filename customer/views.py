@@ -16,10 +16,6 @@ def stock_list(request):
     present_stock=motor_products.objects.all().order_by("company")
     other_stock=other_products.objects.all().order_by("item_name")
 
-    print("-------------------")
-    
-    print(datetime.datetime.now())
-    print("-------------------")
 
     return render(request, "customer/stock_list.html",{
         "present_stock":present_stock,
