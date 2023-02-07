@@ -14,7 +14,7 @@ History
 <main>
     
     <h1>History</h1>
-    
+    <h1>Motor Details</h1>
     <table>
         <thead>
             <tr>
@@ -45,6 +45,37 @@ History
                 <td>{{fields.customer_phno}}</td>
                 <td>{{fields.customer_address}}</td>
                 <td>{{fields.dateandtime}}</td>
+            </tr>
+        </tbody>
+        {% endfor%}
+    </table>
+    <h1>Other products</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>S No.</th>
+                <th>Item name</th>
+                <th>HSN Code</th>
+                <th>Price</th>
+                <th>Others</th>
+                <th>Customer name</th>
+                <th>Cust. ph.no</th>
+                <th>Cust. address</th>
+                <th>Date-time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fields in other_details %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{fields.item_name}}
+                <td>{{fields.hsncode}}</td>
+                <td>{{fields.price}}</td>
+                <td>{{fields.specifications}}</td>
+                <td>{{fields.customer_name}}</td>
+                <td>{{fields.customer_phno}}</td>
+                <td>{{fields.customer_address}}</td>
+                <td>{{fields.date}}</td>
             </tr>
         </tbody>
         {% endfor%}
