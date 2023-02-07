@@ -7,7 +7,7 @@
 {% endblock page_title %}
 
 {% block page_css %}
-    <link rel="stylesheet" href="{% static "stock/stock.css" %}">
+    <link rel="stylesheet" href="{% static "customer/stock_list.css" %}">
     <!-- <script src="{% static "stock/stock.js" %}" defer></script> -->
 {% endblock page_css %}
 
@@ -27,7 +27,7 @@
                     {{msg}}
                 {% endfor %}
                 </center>
-            </div><br>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -62,11 +62,6 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <button class="abut">
-                <!-- <a href={% url 'motorsentrypage' %}>
-                    Add motor
-                </a> -->
-            </button>
         </div>
     
         <div id="others">

@@ -2,44 +2,54 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static "stock/motor.css" %}">
+    <link rel="stylesheet" href="{% static " customer/billing_motor.css" %}">
 </head>
+
 <body>
     <form method="POST">
         {%csrf_token%}
-        
-        <p>Company : </p><p>{{details.company}}</p>
-        <p>Model Name : </p><p>{{details.model_name}}</p>
-        <p>Hp : </p><p>{{details.hp}}</p>
-        <p>HSN code : </p><p>{{details.hsncode}}</p>
-        <p>Specifications :  </p><p>{{details.others}}</p>
-        <p>Price : </p><p>{{details.price}}</p>
+
+        <p>Company : </p>
+        <p>{{details.company}}</p>
+        <p>Model Name : </p>
+        <p>{{details.model_name}}</p>
+        <p>Hp : </p>
+        <p>{{details.hp}}</p>
+        <p>HSN code : </p>
+        <p>{{details.hsncode}}</p>
+        <p>Specifications : </p>
+        <p>{{details.others}}</p>
+        <p>Price : </p>
+        <p>{{details.price}}</p>
 
         <h3>Customer Details</h3>
-
-        <label>Customer name</label>
-        <input type="text" name="Customer_name" />
-        <label>Customer ph.no</label>
-        <input type="text" name="Customer_phno" />
-        <h3>Residence Details</h3>
-        <label>H.no</label>
-        <input type="text" name="H.no" />
-        <label>Street</label>
-        <input type="text" name="street" />
-        <label>Village/City</label>
-        <input type="text" name="village" />
-        <label>District</label>
-        <input type="text" name="District" />
-        <label>Pincode</label>
-        <input type="text" name="pincode" />
+        <div class="formdiv">
+            <label>Customer name</label>
+            <input type="text" name="Customer_name" />
+            <label>Customer ph.no</label>
+            <input type="text" name="Customer_phno" />
+            <h3>Residence Details</h3>
+            <label>H.no</label>
+            <input type="text" name="H.no" />
+            <label>Street</label>
+            <input type="text" name="street" />
+            <label>Village/City</label>
+            <input type="text" name="village" />
+            <label>District</label>
+            <input type="text" name="District" />
+            <label>Pincode</label>
+            <input type="text" name="pincode" />
+        </div>
 
 
         <input type="submit" id="yes" class="yes" name="Yes" />
     </form>
 </body>
+
 </html>

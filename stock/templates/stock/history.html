@@ -3,44 +3,49 @@
 {% load static %}
 
 {% block page_title %}
-    History
+History
 {% endblock page_title %}
 
 {% block page_css %}
-    <link rel="stylesheet" href="{% static "stock/history.css" %}">
+<link rel="stylesheet" href="{% static "stock/history.css" %}">
 {% endblock page_css %}
 
 {% block page_body %}
-<table>
-    <thead>
-        <tr>
-            <th>S No.</th>
-            <th>Company</th>
-            <th>Model</th>
-            <th>HP</th>
-            <th>HSN Code</th>
-            <th>Price</th>
-            <th>Others</th>
-            <th>Customer name</th>
-            <th>Cust. ph.no</th>
-            <th>Cust. address</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for fields in details %}
-    <tr>
-        <td>{{forloop.counter}}</td>
-        <td>{{fields.company}}
-        <td>{{fields.model_name}}</td>
-        <td>{{fields.hp}}</td>
-        <td>{{fields.hsncode}}</td>
-        <td>{{fields.price}}</td>
-        <td>{{fields.others}}</td>
-        <td>{{fields.customer_name}}</td>
-        <td>{{fields.customer_phno}}</td>
-        <td>{{fields.customer_address}}</td>
-    </tr>
-    </tbody>
-    {% endfor%}
-</table>
+<main>
+    
+    <h1>History</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>S No.</th>
+                <th>Company</th>
+                <th>Model</th>
+                <th>HP</th>
+                <th>HSN Code</th>
+                <th>Price</th>
+                <th>Others</th>
+                <th>Customer name</th>
+                <th>Cust. ph.no</th>
+                <th>Cust. address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fields in details %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{fields.company}}
+                <td>{{fields.model_name}}</td>
+                <td>{{fields.hp}}</td>
+                <td>{{fields.hsncode}}</td>
+                <td>{{fields.price}}</td>
+                <td>{{fields.others}}</td>
+                <td>{{fields.customer_name}}</td>
+                <td>{{fields.customer_phno}}</td>
+                <td>{{fields.customer_address}}</td>
+            </tr>
+        </tbody>
+        {% endfor%}
+    </table>
+</main>
 {% endblock page_body %}
