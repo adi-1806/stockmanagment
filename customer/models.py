@@ -10,7 +10,7 @@ class selled_motor(models.Model):
     price=models.IntegerField(null=True)
     others=models.CharField(max_length=100)
     customer_name=models.CharField(max_length=100)
-    customer_phno=models.IntegerField(max_length=10)
+    customer_phno=models.IntegerField()
     customer_address=models.TextField()
 
     def __str__(self) :

@@ -7,6 +7,11 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 @login_required(login_url='loginpage')
+def customer_home(request):
+    return render(request, "customer/customer_home.html")
+    
+
+@login_required(login_url='loginpage')
 def stock_list(request):
     present_stock=motor_products.objects.all().order_by("company")
     other_stock=other_products.objects.all().order_by("item_name")
@@ -15,7 +20,7 @@ def stock_list(request):
         "other_stock":other_stock
     })
 
-
+@login_required(login_url='loginpage')
 def billing(request,pk):
     details=motor_products.objects.get(id=pk)
     if request.method=="POST":
@@ -32,7 +37,7 @@ def billing(request,pk):
             entered_district = request.POST['District']
             entered_pincode = request.POST['pincode']
             entered_address = entered_hno +", "+ entered_street +", "+ entered_village +", "+ entered_district +", "+ entered_pincode
-
+ 
             selled_details=selled_motor(
                 company= details.company,
                 model_name=details.model_name,
