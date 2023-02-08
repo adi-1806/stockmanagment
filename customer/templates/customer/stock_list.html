@@ -49,7 +49,7 @@
                         <td>{{fields.hsncode}}</td>
                         <td>{{fields.others | title }}</td>
                         <td>{{fields.price}}</td>
-                        <td></td>
+                        <td data-qty="{{fields.quantity}}" id="available" > </td>
                         <td>
                             <button class="operations"><a href={% url 'billingpage' fields.id %}>Buy</a></button>
                         </td>
@@ -71,6 +71,7 @@
                         <th>Specifications</th>
                         <th>HSN Code</th>
                         <th>Price</th>
+                        <th>Availability</th>
                         <th>Operations</th>
                     </tr>
                 </thead>
@@ -82,6 +83,7 @@
                         <td>{{fields.specifications | title}}</td>
                         <td>{{fields.hsncode}}</td>
                         <td>{{fields.price}}</td>
+                        <td data-qty="{{fields.quantity}}" id="available" > </td>
                         <td>
                             <button class="operations"><a href={% url 'billingotherpage' fields.id %}>Buy</a></button>
                         </td>
@@ -92,4 +94,17 @@
         </div>
     </form>
 </main>
+
+<script>
+    aval = document.querySelectorAll("#available");
+    aval.forEach(a => {
+        const avadata = parseInt(a.getAttribute("data-qty"));
+        if(avadata > 0){
+            a.textContent = "Yes";}
+            else{
+                a.textContent = "No";
+            }
+    });
+</script>
+
 {% endblock page_body %}
