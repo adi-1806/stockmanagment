@@ -13,6 +13,14 @@
 {% endblock page_css %}
 
 {% block page_body %}
+    <div><center>
+        <h1>
+        {% for msg in messages %}
+            {{msg}}
+        {% endfor %}
+        </h1>
+    </center>
+    </div>
 <form method="POST">
     {%csrf_token%}
     <h1 class="maintitle">Billing Page</h1>
