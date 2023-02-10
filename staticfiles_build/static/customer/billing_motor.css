@@ -1,0 +1,81 @@
+main{
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: "pro cust";
+}
+.maintitle{
+    color: #003d2b;
+    text-align: center;
+    margin-bottom: 0%;
+}
+
+#pro{
+    grid-area: "pro";
+    align-self: center;
+}
+
+.custdetails{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    grid-area: "cust";
+}
+
+.title{
+    margin-bottom: 1.5rem;
+    color: #003d2b;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 1px 2px 8px #003d2b;
+    max-width: fit-content;
+}
+
+.formdiv{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem 1rem; 
+}
+.yes{  
+    display: block;
+    grid-column: span 2;
+    margin: 1rem auto;
+    padding: .5rem 1.5rem;
+    background-color: #003d2b;
+    color: #ade6b9; 
+    font-weight: bolder;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    user-select: none;
+    transition: .4s;
+}
+.yes:hover{
+    box-shadow: 0px 0px 12px #003d2b;
+}
+
+label{
+    color: #003d2b;
+}
+input:not(.yes){
+    border: none;
+    border-bottom: 1px solid rgb(192, 192, 192);
+    font-size: 1rem;
+    width: 100%;
+    transition: 0.4s;
+}
+
+input:focus:not(.yes){
+    outline: none;
+    border-bottom: 1px solid #003d2b;
+}
+.req{
+    color: red;
+}

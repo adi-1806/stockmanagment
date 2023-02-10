@@ -1,0 +1,35 @@
+*{
+    margin: 0%;
+}
+main{
+    display: grid;
+    grid-template: 100% / 13rem 1fr;
+}
+.menu{
+    /* width: 10rem; */
+    border-right: 1px solid black;
+    height: 100%;
+}
+.maincontent{
+    background-color: white;
+}
+.listmenu{
+    /* list-style: none; */
+    padding: .25rem 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid black;
+}
+
+details[open]{
+    border: 1px solid black;
+}
+
+.cat{
+    font-size: 1rem;
+    padding: 1rem;
+}
+.listitem{
+    list-style: none;
+    padding: .2rem 1rem;
+    border-bottom: 1px solid black;
+}
